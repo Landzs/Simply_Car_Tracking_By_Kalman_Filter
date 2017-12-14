@@ -1,4 +1,4 @@
-function [car_position,detect_car]=Detect_Car(background,image)
+function [car_position,detect_car,car_size]=Detect_Car(background,image)
 %
     background_image=imread(background);                 
     % figure,imshow(im1,[]);title('Raw');              
@@ -44,8 +44,10 @@ function [car_position,detect_car]=Detect_Car(background,image)
 %         plot(STATS_1(Largerst_index).Centroid(1),STATS_1(Largerst_index).Centroid(2),'ro');
         car_position=[STATS_1(Largerst_index).Centroid(1) STATS_1(Largerst_index).Centroid(2)];
         detect_car=1
+        car_size=Largerst_number;
     else
         detect_car=0;
+        car_size=0;
     end
 
 end
